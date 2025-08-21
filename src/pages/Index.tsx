@@ -291,7 +291,6 @@ const Index = () => {
                 {[
                   { text: "Successfully delivered impactful academic projects", link: null },
                   { text: "Active coding practice on LeetCode & HackerRank", link: null },
-                  { text: "Strong academic track record across multiple disciplines", link: null },
                   { text: "C Programming Certification", link: null },
                   { text: "Python Programming Certification", link: null },
                   { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" }
