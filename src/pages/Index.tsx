@@ -289,18 +289,30 @@ const Index = () => {
               
               <div className="space-y-6">
                 {[
-                  "Successfully delivered impactful academic projects",
-                  "Active coding practice on LeetCode & HackerRank",
-                  "Strong academic track record across multiple disciplines",
-                  "C Programming Certification",
-                  "Python Programming Certification",
-                  "Java Full Stack Development Certification"
+                  { text: "Successfully delivered impactful academic projects", link: null },
+                  { text: "Active coding practice on LeetCode & HackerRank", link: null },
+                  { text: "Strong academic track record across multiple disciplines", link: null },
+                  { text: "C Programming Certification", link: null },
+                  { text: "Python Programming Certification", link: null },
+                  { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" }
                 ].map((achievement, index) => (
                   <Card key={index} className="shadow-soft hover:shadow-hover transition-all duration-300">
                     <CardContent className="p-4">
                       <div className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                        <span className="text-foreground">{achievement}</span>
+                        {achievement.link ? (
+                          <a 
+                            href={achievement.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer flex items-center gap-1"
+                          >
+                            {achievement.text}
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        ) : (
+                          <span className="text-foreground">{achievement.text}</span>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
