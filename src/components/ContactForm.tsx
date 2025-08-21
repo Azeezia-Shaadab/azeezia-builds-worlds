@@ -29,16 +29,30 @@ const ContactForm = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const formData = new FormData();
+      formData.append('access_key', '55bbd9a5-454e-4917-ae31-fb2529067e7d');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('message', data.message);
+      formData.append('subject', `Portfolio Contact from ${data.name}`);
       
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
       });
       
-      form.reset();
+      const result = await response.json();
+      
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
       toast({
         title: "Error sending message",
