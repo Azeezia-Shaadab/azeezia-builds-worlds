@@ -32,8 +32,8 @@ const Index = () => {
 
   const phrases = [
     'AI & ML Enthusiast',
-    'Explorer of New Technologies', 
-    'Creative Thinker & Dreamer'
+    'Tech Explorer', 
+    'Creative Thinker'
   ];
 
   useEffect(() => {
