@@ -27,10 +27,30 @@ import {
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+
+  const phrases = [
+    'AI & ML Enthusiast',
+    'Explorer of New Technologies', 
+    'Creative Thinker & Dreamer'
+  ];
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTyping(false);
+      setTimeout(() => {
+        setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setIsTyping(true);
+      }, 300);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [phrases.length]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -54,12 +74,16 @@ const Index = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-              Hi, I'm Azeezia Shaadab
+              Hi, I'm Azeezia Shaadab 👋
             </h1>
             
-            <div className="text-xl md:text-2xl text-primary-foreground/90 mb-8 min-h-[2rem]">
-              <span className="inline-block border-r-2 border-accent animate-typing overflow-hidden whitespace-nowrap">
-                Aspiring AI & Software Developer | Passionate Problem Solver | AI & ML Enthusiast
+            <div className="text-xl md:text-2xl text-primary-foreground/90 mb-8 min-h-[3rem] flex items-center justify-center">
+              <span 
+                className={`transition-all duration-300 ${
+                  isTyping ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                {phrases[currentPhraseIndex]}
               </span>
             </div>
             
@@ -67,10 +91,9 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-accent hover:bg-accent-hover text-accent-foreground shadow-hover"
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => scrollToSection('#projects')}
               >
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
+                View My Projects
               </Button>
               <Button 
                 variant="outline" 
@@ -78,7 +101,7 @@ const Index = () => {
                 className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 onClick={() => scrollToSection('#contact')}
               >
-                Get In Touch
+                Let's Connect
               </Button>
             </div>
             
