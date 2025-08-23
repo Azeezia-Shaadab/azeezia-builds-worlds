@@ -59,7 +59,7 @@ const Index = () => {
             
             <div className="text-xl md:text-2xl text-primary-foreground/90 mb-8 min-h-[2rem]">
               <span className="inline-block border-r-2 border-accent animate-typing overflow-hidden whitespace-nowrap">
-                Aspiring AI & Software Developer | Passionate Problem Solver | Lifelong Learner
+                Aspiring AI & Software Developer | Passionate Problem Solver | AI & ML Enthusiast
               </span>
             </div>
             
