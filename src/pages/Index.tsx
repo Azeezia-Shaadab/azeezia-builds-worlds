@@ -54,7 +54,7 @@ const Index = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-              Azeezia Shaadab
+              Hi, I'm Azeezia Shaadab
             </h1>
             
             <div className="text-xl md:text-2xl text-primary-foreground/90 mb-8 min-h-[2rem]">
