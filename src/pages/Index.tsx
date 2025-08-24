@@ -449,7 +449,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary mb-8"
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1PZ9zLrStdSrtqyyZPY8eVAmMINERRWNn', '_blank')}
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume

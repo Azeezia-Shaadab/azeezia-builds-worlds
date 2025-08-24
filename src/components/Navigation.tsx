@@ -50,7 +50,7 @@ const Navigation = () => {
               </button>
             ))}
             <Button 
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1PZ9zLrStdSrtqyyZPY8eVAmMINERRWNn', '_blank')}
               className="bg-gradient-primary hover:opacity-90 transition-opacity"
             >
               <Download className="w-4 h-4 mr-2" />
@@ -80,8 +80,8 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <Button 
-                onClick={() => scrollToSection('#contact')}
+               <Button 
+                onClick={() => window.open('https://drive.google.com/uc?export=download&id=1PZ9zLrStdSrtqyyZPY8eVAmMINERRWNn', '_blank')}
                 className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
               >
                 <Download className="w-4 h-4 mr-2" />
