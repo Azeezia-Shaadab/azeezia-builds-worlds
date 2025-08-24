@@ -5,7 +5,6 @@ import Navigation from '@/components/Navigation';
 import SkillCard from '@/components/SkillCard';
 import ProjectCard from '@/components/ProjectCard';
 import ContactForm from '@/components/ContactForm';
-import profilePhoto from '@/assets/profile-photo.png';
 import { 
   Download, 
   Github, 
@@ -40,6 +39,27 @@ const Index = () => {
   ];
 
   const fullName = "Hi, I'm Azeezia Shaadab";
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.section-animate');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     setIsVisible(true);
@@ -99,22 +119,29 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground dark">
       <Navigation />
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-primary/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-40 right-20 w-24 h-24 bg-accent/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 left-10 w-16 h-16 bg-primary/5 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
+        </div>
         <div className="container mx-auto px-4 lg:px-6 relative z-10">
           <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             {/* Profile Image */}
-            <img 
-              src="/lovable-uploads/000b8e80-3203-40db-825d-2a5836434663.png" 
-              alt="Azeezia Shaadab - Profile Photo" 
-              className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-4 border-primary/20 shadow-hover"
-            />
+            <div className="animate-fade-in-scale">
+              <img 
+                src="/lovable-uploads/000b8e80-3203-40db-825d-2a5836434663.png" 
+                alt="Azeezia Shaadab - Profile Photo" 
+                className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-4 border-primary/30 shadow-glow animate-glow hover-lift"
+              />
+            </div>
             
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 min-h-[1.2em]">
               {nameText}
@@ -136,23 +163,25 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button 
                 size="lg" 
-                className="bg-accent hover:bg-accent-hover text-accent-foreground shadow-hover"
+                className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-glow hover-lift animate-slide-up"
                 onClick={() => scrollToSection('#projects')}
+                style={{animationDelay: '0.8s'}}
               >
                 View My Projects
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover-lift animate-slide-up"
                 onClick={() => scrollToSection('#contact')}
+                style={{animationDelay: '1s'}}
               >
                 Let's Connect
               </Button>
             </div>
             
             {/* Social Links */}
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-center space-x-6 animate-slide-up" style={{animationDelay: '1.2s'}}>
               {[
                 { icon: Github, href: 'https://github.com/Azeezia-Shaadab', label: 'GitHub' },
                 { icon: Linkedin, href: 'https://linkedin.com/in/azeezia-shaadab-303887320', label: 'LinkedIn' },
@@ -164,10 +193,11 @@ const Index = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-full bg-card border border-border hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-glow"
                   aria-label={social.label}
+                  style={{animationDelay: `${1.4 + index * 0.1}s`}}
                 >
-                  <social.icon className="w-6 h-6 text-primary-foreground" />
+                  <social.icon className="w-6 h-6 text-foreground hover:text-primary-foreground transition-colors" />
                 </a>
               ))}
             </div>
@@ -176,7 +206,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-secondary/30">
+      <section id="about" className="py-20 bg-card section-animate">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -184,7 +214,7 @@ const Index = () => {
               <div className="w-20 h-1 bg-gradient-primary mx-auto"></div>
             </div>
             
-            <Card className="shadow-soft animate-fade-in">
+            <Card className="shadow-glow hover-lift bg-card border-border">
               <CardContent className="p-8">
                 <p className="text-lg text-muted-foreground leading-relaxed text-center">
                   I am a highly motivated and detail-oriented individual, passionate about technology, 
@@ -201,7 +231,7 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className="py-20 section-animate">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">Skills & Technologies</h2>
@@ -209,26 +239,34 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <SkillCard
-              icon={<Code className="w-8 h-8" />}
-              title="Programming"
-              skills={['Python', 'Java', 'C']}
-            />
-            <SkillCard
-              icon={<Monitor className="w-8 h-8" />}
-              title="Frontend"
-              skills={['HTML', 'CSS', 'JavaScript']}
-            />
-            <SkillCard
-              icon={<Database className="w-8 h-8" />}
-              title="Backend & Database"
-              skills={['MySQL']}
-            />
-            <SkillCard
-              icon={<Brain className="w-8 h-8" />}
-              title="AI Tools & Software"
-              skills={['ChatGPT', 'DeepSeek', 'Gemini', 'Canva', 'Gamma', 'VS Code', 'Eclipse', 'Jupyter']}
-            />
+            <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
+              <SkillCard
+                icon={<Code className="w-8 h-8" />}
+                title="Programming"
+                skills={['Python', 'Java', 'C']}
+              />
+            </div>
+            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <SkillCard
+                icon={<Monitor className="w-8 h-8" />}
+                title="Frontend"
+                skills={['HTML', 'CSS', 'JavaScript']}
+              />
+            </div>
+            <div className="animate-slide-up" style={{animationDelay: '0.6s'}}>
+              <SkillCard
+                icon={<Database className="w-8 h-8" />}
+                title="Backend & Database"
+                skills={['MySQL']}
+              />
+            </div>
+            <div className="animate-slide-up" style={{animationDelay: '0.8s'}}>
+              <SkillCard
+                icon={<Brain className="w-8 h-8" />}
+                title="AI Tools & Software"
+                skills={['ChatGPT', 'DeepSeek', 'Gemini', 'Canva', 'Gamma', 'VS Code', 'Eclipse', 'Jupyter']}
+              />
+            </div>
           </div>
         </div>
       </section>
