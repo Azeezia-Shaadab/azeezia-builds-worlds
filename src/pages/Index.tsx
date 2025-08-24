@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import SkillCard from '@/components/SkillCard';
 import ProjectCard from '@/components/ProjectCard';
 import ContactForm from '@/components/ContactForm';
+import profilePhoto from '@/assets/profile-photo.png';
 import { 
   Download, 
   Github, 
@@ -68,10 +69,12 @@ const Index = () => {
           <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            {/* Profile Image Placeholder */}
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-primary flex items-center justify-center shadow-hover">
-              <User className="w-16 h-16 text-primary-foreground" />
-            </div>
+            {/* Profile Image */}
+            <img 
+              src="/lovable-uploads/000b8e80-3203-40db-825d-2a5836434663.png" 
+              alt="Azeezia Shaadab - Profile Photo" 
+              className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-4 border-primary/20 shadow-hover"
+            />
             
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
               Hi, I'm Azeezia Shaadab
