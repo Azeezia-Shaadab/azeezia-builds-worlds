@@ -30,6 +30,8 @@ const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [nameText, setNameText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
 
   const phrases = [
     'AI & ML Enthusiast',
@@ -37,9 +39,47 @@ const Index = () => {
     'Creative Thinker'
   ];
 
+  const fullName = "Hi, I'm Azeezia Shaadab";
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  // Typewriter effect for name
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    let currentIndex = 0;
+    
+    const typeWriter = () => {
+      if (currentIndex <= fullName.length) {
+        setNameText(fullName.slice(0, currentIndex));
+        currentIndex++;
+        timeoutId = setTimeout(typeWriter, 150); // Slow typing speed
+      } else {
+        // Stop cursor blinking after typing is complete
+        setTimeout(() => setShowCursor(false), 1000);
+      }
+    };
+
+    // Start typing after a short delay
+    const startTyping = setTimeout(typeWriter, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearTimeout(startTyping);
+    };
+  }, [fullName]);
+
+  // Cursor blinking effect
+  useEffect(() => {
+    if (!showCursor) return;
+    
+    const interval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 600);
+
+    return () => clearInterval(interval);
+  }, [showCursor]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,8 +116,11 @@ const Index = () => {
               className="w-32 h-32 mx-auto mb-8 rounded-full object-cover border-4 border-primary/20 shadow-hover"
             />
             
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-              Hi, I'm Azeezia Shaadab
+            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 min-h-[1.2em]">
+              {nameText}
+              <span className={`inline-block ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-150`}>
+                |
+              </span>
             </h1>
             
             <div className="text-xl md:text-2xl text-primary-foreground/90 mb-8 min-h-[3rem] flex items-center justify-center">
