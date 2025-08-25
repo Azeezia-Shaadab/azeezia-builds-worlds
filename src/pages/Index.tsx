@@ -38,7 +38,7 @@ const Index = () => {
     'Creative Thinker'
   ];
 
-  const fullName = "Hi, I'm Azeezia Shaadab";
+  const fullName = "Hi, I'm\nAzeezia Shaadab";
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -143,7 +143,7 @@ const Index = () => {
               />
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 min-h-[1.2em]">
+            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 min-h-[1.2em] whitespace-pre-line">
               {nameText}
               <span className={`inline-block ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-150`}>
                 |
