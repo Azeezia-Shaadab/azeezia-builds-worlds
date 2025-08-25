@@ -206,17 +206,24 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-card section-animate">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section id="about" className="py-20 relative overflow-hidden section-animate">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
+        <div className="absolute top-10 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-xl animate-float"></div>
+        <div className="absolute bottom-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '3s'}}></div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-primary mb-4">About Me</h2>
-              <div className="w-20 h-1 bg-gradient-primary mx-auto"></div>
+            <div className="text-center mb-16 animate-slide-up">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">About Me</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full animate-glow"></div>
             </div>
             
-            <Card className="shadow-glow hover-lift bg-card border-border">
-              <CardContent className="p-8">
-                <p className="text-lg text-muted-foreground leading-relaxed text-center">
+            <Card className="shadow-2xl hover-lift bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-purple-500/30 backdrop-blur-sm animate-fade-in-scale">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex items-center justify-center mb-6">
+                  <User className="w-8 h-8 text-purple-400 animate-pulse" />
+                </div>
+                <p className="text-lg md:text-xl text-gray-200 leading-relaxed text-center">
                   I am a highly motivated and detail-oriented individual, passionate about technology, 
                   problem-solving, and continuous learning. With a strong foundation in programming 
                   and AI, I aim to create impactful solutions while growing as a professional. 
@@ -231,36 +238,40 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 section-animate">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Skills & Technologies</h2>
-            <div className="w-20 h-1 bg-gradient-primary mx-auto"></div>
+      <section id="skills" className="py-20 relative overflow-hidden section-animate">
+        <div className="absolute inset-0 bg-gradient-to-tl from-blue-900/20 to-purple-900/20"></div>
+        <div className="absolute top-20 left-1/4 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-20 right-1/4 w-28 h-28 bg-purple-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '4s'}}></div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">Skills & Technologies</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full animate-glow"></div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.2s'}}>
               <SkillCard
                 icon={<Code className="w-8 h-8" />}
                 title="Programming"
                 skills={['Python', 'Java', 'C']}
               />
             </div>
-            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.4s'}}>
               <SkillCard
                 icon={<Monitor className="w-8 h-8" />}
                 title="Frontend"
                 skills={['HTML', 'CSS', 'JavaScript']}
               />
             </div>
-            <div className="animate-slide-up" style={{animationDelay: '0.6s'}}>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.6s'}}>
               <SkillCard
                 icon={<Database className="w-8 h-8" />}
                 title="Backend & Database"
                 skills={['MySQL']}
               />
             </div>
-            <div className="animate-slide-up" style={{animationDelay: '0.8s'}}>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.8s'}}>
               <SkillCard
                 icon={<Brain className="w-8 h-8" />}
                 title="AI Tools & Software"
@@ -272,44 +283,62 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Featured Projects</h2>
-            <div className="w-20 h-1 bg-gradient-primary mx-auto"></div>
+      <section id="projects" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-1/4 right-20 w-44 h-44 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-1/4 left-20 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl animate-float" style={{animationDelay: '5s'}}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">Featured Projects</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full animate-glow"></div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <ProjectCard
-              title="Hospital Management System"
-              description="Streamlined hospital operations and patient record management system with comprehensive data handling and user-friendly interface."
-              technologies={['Java', 'MySQL', 'GUI']}
-            />
-            <ProjectCard
-              title="Cloud Audit Trail Tracker"
-              description="Python-based system for logging and tracking cloud activity to enhance security monitoring and compliance."
-              technologies={['Python', 'Cloud Services', 'Security']}
-            />
-            <ProjectCard
-              title="Student Management System"
-              description="Automated student data and record management system for educational institutions with efficient data processing."
-              technologies={['Java', 'Database', 'Management']}
-            />
-            <ProjectCard
-              title="Online Tender Management System"
-              description="Digital platform for secure and transparent tendering processes with comprehensive bid management features."
-              technologies={['Web Development', 'Database', 'Security']}
-            />
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.2s'}}>
+              <ProjectCard
+                title="Hospital Management System"
+                description="Streamlined hospital operations and patient record management system with comprehensive data handling and user-friendly interface."
+                technologies={['Java', 'MySQL', 'GUI']}
+              />
+            </div>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.4s'}}>
+              <ProjectCard
+                title="Cloud Audit Trail Tracker"
+                description="Python-based system for logging and tracking cloud activity to enhance security monitoring and compliance."
+                technologies={['Python', 'Cloud Services', 'Security']}
+              />
+            </div>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.6s'}}>
+              <ProjectCard
+                title="Student Management System"
+                description="Automated student data and record management system for educational institutions with efficient data processing."
+                technologies={['Java', 'Database', 'Management']}
+              />
+            </div>
+            <div className="animate-slide-up hover-scale" style={{animationDelay: '0.8s'}}>
+              <ProjectCard
+                title="Online Tender Management System"
+                description="Digital platform for secure and transparent tendering processes with comprehensive bid management features."
+                technologies={['Web Development', 'Database', 'Security']}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Education</h2>
-            <div className="w-20 h-1 bg-gradient-primary mx-auto"></div>
+      <section id="education" className="py-20 relative overflow-hidden section-animate">
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/20 to-purple-900/20"></div>
+        <div className="absolute top-16 right-16 w-40 h-40 bg-blue-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute bottom-16 left-16 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '3.5s'}}></div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">Education</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full animate-glow"></div>
           </div>
           
           <div className="max-w-4xl mx-auto">
@@ -337,26 +366,28 @@ const Index = () => {
                   icon: Award
                 }
               ].map((edu, index) => (
-                <Card key={index} className="shadow-soft hover:shadow-hover transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                        <edu.icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-primary mb-1">{edu.degree}</h3>
-                        <p className="text-muted-foreground mb-2">{edu.institution}</p>
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-muted-foreground">
-                          <span className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {edu.period}
-                          </span>
-                          <span className="font-medium text-accent">{edu.grade}</span>
+                <div key={index} className="animate-slide-up hover-scale" style={{animationDelay: `${0.3 + index * 0.2}s`}}>
+                  <Card className="shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 bg-gradient-to-r from-purple-900/30 to-blue-900/30 border-purple-500/30 backdrop-blur-sm">
+                    <CardContent className="p-6 md:p-8">
+                      <div className="flex items-start space-x-4">
+                        <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
+                          <edu.icon className="w-7 h-7 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl md:text-2xl font-semibold text-purple-400 mb-2">{edu.degree}</h3>
+                          <p className="text-gray-300 mb-3 text-lg">{edu.institution}</p>
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-gray-400">
+                            <span className="flex items-center">
+                              <Calendar className="w-4 h-4 mr-2 text-blue-400" />
+                              {edu.period}
+                            </span>
+                            <span className="font-semibold text-blue-400 text-lg">{edu.grade}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
@@ -364,21 +395,28 @@ const Index = () => {
       </section>
 
       {/* Experience & Achievements Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-20 relative overflow-hidden section-animate">
+        <div className="absolute inset-0 bg-gradient-to-bl from-purple-900/30 to-blue-900/30"></div>
+        <div className="absolute top-1/3 left-1/3 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute bottom-1/3 right-1/3 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl animate-float" style={{animationDelay: '4.5s'}}></div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Experience */}
-            <div>
+            <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
               <div className="text-center lg:text-left mb-12">
-                <h2 className="text-3xl font-bold text-primary mb-4">Experience</h2>
-                <div className="w-20 h-1 bg-gradient-primary mx-auto lg:mx-0"></div>
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">Experience</h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto lg:mx-0 rounded-full animate-glow"></div>
               </div>
               
-              <Card className="shadow-soft">
+              <Card className="shadow-2xl hover-lift bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/30 backdrop-blur-sm">
                 <CardContent className="p-8 text-center">
-                  <Trophy className="w-16 h-16 text-accent mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-primary mb-4">Ready for New Opportunities</h3>
-                  <p className="text-muted-foreground">
+                  <div className="relative">
+                    <Trophy className="w-16 h-16 text-purple-400 mx-auto mb-4 animate-bounce" />
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full animate-ping"></div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-purple-400 mb-4">Ready for New Opportunities</h3>
+                  <p className="text-gray-200 leading-relaxed">
                     Hands-on experience through academic projects and personal learning. 
                     Actively seeking internships and entry-level positions to apply my 
                     skills in real-world scenarios and contribute to meaningful projects.
@@ -388,10 +426,10 @@ const Index = () => {
             </div>
 
             {/* Achievements & Certifications */}
-            <div>
+            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
               <div className="text-center lg:text-left mb-12">
-                <h2 className="text-3xl font-bold text-primary mb-4">Achievements & Certifications</h2>
-                <div className="w-20 h-1 bg-gradient-primary mx-auto lg:mx-0"></div>
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">Achievements & Certifications</h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto lg:mx-0 rounded-full animate-glow"></div>
               </div>
               
               <div className="space-y-6">
@@ -399,26 +437,28 @@ const Index = () => {
                   { text: "Python Programming Certification", link: null },
                   { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" }
                 ].map((achievement, index) => (
-                  <Card key={index} className="shadow-soft hover:shadow-hover transition-all duration-300">
-                    <CardContent className="p-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                        {achievement.link ? (
-                          <a 
-                            href={achievement.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer flex items-center gap-1"
-                          >
-                            {achievement.text}
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        ) : (
-                          <span className="text-foreground">{achievement.text}</span>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <div key={index} className="animate-slide-up hover-scale" style={{animationDelay: `${0.6 + index * 0.2}s`}}>
+                    <Card className="shadow-xl hover:shadow-blue-500/20 transition-all duration-500 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border-blue-500/30 backdrop-blur-sm">
+                      <CardContent className="p-6">
+                        <div className="flex items-center space-x-4">
+                          <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0 animate-pulse"></div>
+                          {achievement.link ? (
+                            <a 
+                              href={achievement.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-200 hover:text-blue-400 transition-colors duration-300 cursor-pointer flex items-center gap-2 text-lg font-medium group"
+                            >
+                              {achievement.text}
+                              <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                            </a>
+                          ) : (
+                            <span className="text-gray-200 text-lg font-medium">{achievement.text}</span>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 ))}
               </div>
             </div>
@@ -427,12 +467,16 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Get In Touch</h2>
-            <div className="w-20 h-1 bg-gradient-primary mx-auto"></div>
-            <p className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
+      <section id="contact" className="py-20 relative overflow-hidden section-animate">
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-blue-900/20"></div>
+        <div className="absolute top-12 right-12 w-36 h-36 bg-purple-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-12 left-12 w-28 h-28 bg-blue-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '4s'}}></div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">Get In Touch</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full animate-glow"></div>
+            <p className="text-lg text-gray-300 mt-6 max-w-2xl mx-auto">
               I'm always open to discussing new opportunities, collaborating on projects, 
               or just having a chat about technology and innovation.
             </p>
@@ -440,30 +484,30 @@ const Index = () => {
           
           <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
             {/* Contact Info */}
-            <div className="space-y-8">
+            <div className="space-y-8 animate-slide-up" style={{animationDelay: '0.2s'}}>
               <div>
-                <h3 className="text-2xl font-semibold text-primary mb-8">Contact Information</h3>
+                <h3 className="text-2xl font-semibold text-purple-400 mb-8">Contact Information</h3>
                 <div className="space-y-6">
                   {[
                     { icon: Mail, label: 'Email', value: 'azeeziashaadab@gmail.com', href: 'mailto:azeeziashaadab@gmail.com' },
                     { icon: Phone, label: 'Phone', value: '(+91) 9148126107', href: 'tel:+919148126107' },
                     { icon: MapPin, label: 'Location', value: 'India', href: null }
                   ].map((contact, index) => (
-                    <div key={index} className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                        <contact.icon className="w-6 h-6 text-primary-foreground" />
+                    <div key={index} className="flex items-center space-x-4 hover-scale">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
+                        <contact.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">{contact.label}</p>
+                        <p className="text-sm text-gray-400">{contact.label}</p>
                         {contact.href ? (
                           <a 
                             href={contact.href}
-                            className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                            className="text-gray-200 hover:text-blue-400 transition-colors duration-300 font-medium"
                           >
                             {contact.value}
                           </a>
                         ) : (
-                          <p className="text-foreground font-medium">{contact.value}</p>
+                          <p className="text-gray-200 font-medium">{contact.value}</p>
                         )}
                       </div>
                     </div>
@@ -472,7 +516,7 @@ const Index = () => {
               </div>
               
               <div>
-                <h4 className="text-lg font-semibold text-primary mb-4">Connect with me</h4>
+                <h4 className="text-lg font-semibold text-blue-400 mb-4">Connect with me</h4>
                 <div className="flex space-x-4">
                   {[
                     { icon: Github, href: 'https://github.com/Azeezia-Shaadab', label: 'GitHub' },
@@ -485,10 +529,10 @@ const Index = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-secondary hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110"
+                      className="p-3 rounded-full bg-gradient-to-r from-purple-900/50 to-blue-900/50 border border-purple-500/30 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:scale-110 hover:shadow-lg"
                       aria-label={social.label}
                     >
-                      <social.icon className="w-5 h-5" />
+                      <social.icon className="w-5 h-5 text-gray-200 hover:text-white transition-colors" />
                     </a>
                   ))}
                 </div>
@@ -496,17 +540,23 @@ const Index = () => {
             </div>
 
             {/* Contact Form */}
-            <ContactForm />
+            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12">
-        <div className="container mx-auto px-4 lg:px-6">
+      <footer className="bg-gradient-to-r from-purple-900/80 to-blue-900/80 text-white py-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-blue-900/50"></div>
+        <div className="absolute top-10 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-float"></div>
+        <div className="absolute bottom-10 left-20 w-28 h-28 bg-blue-500/10 rounded-full blur-xl animate-float" style={{animationDelay: '3s'}}></div>
+        
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Azeezia Shaadab</h3>
-            <p className="text-primary-foreground/80 mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Azeezia Shaadab</h3>
+            <p className="text-gray-300 mb-6 text-lg">
               Aspiring AI & Software Developer | Passionate Problem Solver
             </p>
             
@@ -522,25 +572,25 @@ const Index = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5 text-gray-200 hover:text-white transition-colors" />
                 </a>
               ))}
             </div>
             
             <Button 
               variant="outline" 
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary mb-8"
+              className="border-white/30 text-gray-200 hover:bg-white/10 hover:text-white mb-8 backdrop-blur-sm hover:scale-105 transition-all duration-300"
               onClick={() => window.open('https://drive.google.com/uc?export=download&id=1PZ9zLrStdSrtqyyZPY8eVAmMINERRWNn', '_blank')}
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume
             </Button>
             
-            <div className="border-t border-primary-foreground/20 pt-6">
-              <p className="text-primary-foreground/60 text-sm">
+            <div className="border-t border-white/20 pt-6">
+              <p className="text-gray-400 text-sm">
                 © 2024 Azeezia Shaadab. All rights reserved.
               </p>
             </div>

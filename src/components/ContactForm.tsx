@@ -65,10 +65,10 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="shadow-soft">
+    <Card className="shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/30 backdrop-blur-sm hover-lift">
       <CardHeader>
-        <CardTitle className="text-primary">Let's Connect</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-purple-400 text-2xl">Let's Connect</CardTitle>
+        <CardDescription className="text-gray-300 text-lg">
           Have a project in mind or want to collaborate? I'd love to hear from you!
         </CardDescription>
       </CardHeader>
@@ -81,9 +81,13 @@ const ContactForm = () => {
               rules={{ required: "Name is required" }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-gray-200 font-medium">Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your name" {...field} />
+                    <Input 
+                      placeholder="Your name" 
+                      {...field} 
+                      className="bg-white/10 border-purple-500/30 text-gray-200 placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 backdrop-blur-sm"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -101,9 +105,13 @@ const ContactForm = () => {
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-gray-200 font-medium">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="your.email@example.com" {...field} />
+                    <Input 
+                      placeholder="your.email@example.com" 
+                      {...field} 
+                      className="bg-white/10 border-purple-500/30 text-gray-200 placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 backdrop-blur-sm"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -115,11 +123,11 @@ const ContactForm = () => {
               rules={{ required: "Message is required" }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="text-gray-200 font-medium">Message</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="Tell me about your project or just say hello!"
-                      className="min-h-[120px]"
+                      className="min-h-[120px] bg-white/10 border-purple-500/30 text-gray-200 placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 backdrop-blur-sm resize-none"
                       {...field}
                     />
                   </FormControl>
@@ -129,11 +137,14 @@ const ContactForm = () => {
             />
             <Button 
               type="submit" 
-              className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                "Sending..."
+                <div className="flex items-center">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                  Sending...
+                </div>
               ) : (
                 <>
                   <Send className="w-4 h-4 mr-2" />
