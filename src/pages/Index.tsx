@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import SkillCard from '@/components/SkillCard';
+import IconSkillCard from '@/components/IconSkillCard';
 import ProjectCard from '@/components/ProjectCard';
 import ContactForm from '@/components/ContactForm';
 import { 
@@ -22,7 +23,15 @@ import {
   User,
   GraduationCap,
   Trophy,
-  FileText
+  FileText,
+  Bot,
+  Search,
+  Sparkles,
+  Palette,
+  Presentation,
+  FileCode,
+  Sun,
+  BookOpen
 } from 'lucide-react';
 
 const Index = () => {
@@ -281,10 +290,19 @@ const Index = () => {
               />
             </div>
             <div className="animate-slide-up hover-scale" style={{animationDelay: '0.8s'}}>
-              <SkillCard
+              <IconSkillCard
                 icon={<Brain className="w-8 h-8" />}
                 title="AI Tools & Software"
-                skills={['ChatGPT', 'DeepSeek', 'Gemini', 'Canva', 'Gamma', 'VS Code', 'Eclipse', 'Jupyter']}
+                skills={[
+                  { name: 'ChatGPT', icon: <Bot className="w-6 h-6" /> },
+                  { name: 'DeepSeek', icon: <Search className="w-6 h-6" /> },
+                  { name: 'Gemini', icon: <Sparkles className="w-6 h-6" /> },
+                  { name: 'Canva', icon: <Palette className="w-6 h-6" /> },
+                  { name: 'Gamma', icon: <Presentation className="w-6 h-6" /> },
+                  { name: 'VS Code', icon: <FileCode className="w-6 h-6" /> },
+                  { name: 'Eclipse', icon: <Sun className="w-6 h-6" /> },
+                  { name: 'Jupyter', icon: <BookOpen className="w-6 h-6" /> }
+                ]}
               />
             </div>
           </div>
