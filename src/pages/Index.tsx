@@ -462,7 +462,8 @@ const Index = () => {
               <div className="space-y-6">
                 {[
                   { text: "Python Programming Certification", link: "https://drive.google.com/file/d/1b1n3nDaD0Tfoj-3RrWWf5FTyhbcOd89l/view?usp=sharing" },
-                  { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" }
+                  { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" },
+                  { text: "Python Geeks For Geeks Certification", link: "https://drive.google.com/file/d/1KYx0PVGxbKqyjGIKNGkidMEQ-caXDmCH/view?usp=sharing" }
                 ].map((achievement, index) => (
                   <div key={index} className="animate-slide-up hover-scale" style={{animationDelay: `${0.6 + index * 0.2}s`}}>
                     <Card className="shadow-xl hover:shadow-blue-500/20 transition-all duration-500 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border-blue-500/30 backdrop-blur-sm">
