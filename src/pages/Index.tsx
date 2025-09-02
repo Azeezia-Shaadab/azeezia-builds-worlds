@@ -443,7 +443,7 @@ const Index = () => {
               
               <div className="space-y-6">
                 {[
-                  { text: "Python Programming Certification", link: "https://drive.google.com/file/d/1PZ9zLrStdSrtqyyZPY8eVAmMINERRWNn/view?usp=sharing" },
+                  { text: "Python Programming Certification", link: "https://drive.google.com/file/d/1b1n3nDaD0Tfoj-3RrWWf5FTyhbcOd89l/view?usp=sharing" },
                   { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" }
                 ].map((achievement, index) => (
                   <div key={index} className="animate-slide-up hover-scale" style={{animationDelay: `${0.6 + index * 0.2}s`}}>
