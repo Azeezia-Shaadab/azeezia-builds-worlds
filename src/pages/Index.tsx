@@ -172,7 +172,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button 
                 size="lg" 
-                className="bg-gradient-amethyst-blue hover:bg-primary-hover text-primary-foreground shadow-amethyst-glow hover-lift animate-slide-up hover:shadow-blue-glow transition-all duration-300"
+                className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-glow hover-lift animate-slide-up"
                 onClick={() => scrollToSection('#projects')}
                 style={{animationDelay: '0.8s'}}
               >
@@ -181,7 +181,7 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-hero-accent bg-hero-accent/10 text-hero-accent hover:bg-gradient-amethyst-blue hover:text-primary-foreground hover:border-primary hover-lift animate-slide-up transition-all duration-300"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover-lift animate-slide-up"
                 onClick={() => scrollToSection('#contact')}
                 style={{animationDelay: '1s'}}
               >
@@ -202,11 +202,7 @@ const Index = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-3 rounded-full bg-gradient-amethyst-blue/20 border-2 transition-all duration-300 hover:scale-110 animate-slide-up ${
-                    index % 2 === 0 
-                      ? 'border-primary hover:bg-primary hover:shadow-amethyst-glow' 
-                      : 'border-hero-accent hover:bg-hero-accent hover:shadow-blue-glow'
-                  }`}
+                  className="p-3 rounded-full bg-card border border-border hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-glow"
                   aria-label={social.label}
                   style={{animationDelay: `${1.4 + index * 0.1}s`}}
                 >
