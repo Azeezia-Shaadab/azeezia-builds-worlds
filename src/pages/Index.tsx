@@ -63,6 +63,15 @@ const Index = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Check for certification redirect parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('redirect') === 'certification' || window.location.hash === '#certifications') {
+      setTimeout(() => {
+        const element = document.querySelector('#certifications');
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 1000); // Delay to ensure page is loaded
+    }
   }, []);
 
   // Typewriter effect for name
@@ -395,7 +404,7 @@ const Index = () => {
       </section>
 
       {/* Experience & Achievements Section */}
-      <section className="py-20 relative overflow-hidden section-animate">
+      <section id="certifications" className="py-20 relative overflow-hidden section-animate">
         <div className="absolute inset-0 bg-gradient-to-bl from-purple-900/30 to-blue-900/30"></div>
         <div className="absolute top-1/3 left-1/3 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2.5s'}}></div>
         <div className="absolute bottom-1/3 right-1/3 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl animate-float" style={{animationDelay: '4.5s'}}></div>
@@ -434,7 +443,7 @@ const Index = () => {
               
               <div className="space-y-6">
                 {[
-                  { text: "Python Programming Certification", link: null },
+                  { text: "Python Programming Certification", link: "https://drive.google.com/file/d/1PZ9zLrStdSrtqyyZPY8eVAmMINERRWNn/view?usp=sharing" },
                   { text: "Java Full Stack Development Certification", link: "https://drive.google.com/file/d/1_ipr9C3N0c8LkCYo2xVKRkWuv7y7Yco_/view?usp=sharing" }
                 ].map((achievement, index) => (
                   <div key={index} className="animate-slide-up hover-scale" style={{animationDelay: `${0.6 + index * 0.2}s`}}>
