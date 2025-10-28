@@ -279,14 +279,14 @@ const Index = () => {
               <SkillCard
                 icon={<Monitor className="w-8 h-8" />}
                 title="Frontend"
-                skills={['HTML', 'CSS', 'JavaScript']}
+                skills={['HTML', 'CSS', 'JavaScript', 'ReactJS']}
               />
             </div>
             <div className="animate-slide-up hover-scale" style={{animationDelay: '0.6s'}}>
               <SkillCard
                 icon={<Database className="w-8 h-8" />}
                 title="Backend & Database"
-                skills={['MySQL']}
+                skills={['MySQL', 'Node.js']}
               />
             </div>
             <div className="animate-slide-up hover-scale" style={{animationDelay: '0.8s'}}>
